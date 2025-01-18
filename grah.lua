@@ -1118,7 +1118,7 @@ local function CreateKeybindSelector(parent, title)
         local function onKeyPressed(input)
             if input.UserInputType == Enum.UserInputType.Keyboard then
                 keybind = input.KeyCode.Name
-                keybindLabel.Text = "(" .. keybind .. ")"
+                keybindLabel.Text = "(" .. keybind .. ")"  -- Update the keybind label with the selected key
                 keybindLabel.TextColor3 = Color3.fromRGB(170, 170, 170)  -- Reset gray color
                 UserInputService.InputBegan:Disconnect(onKeyPressed)
             end
@@ -1134,6 +1134,7 @@ end
 -- Usage Example
 local parentFrame = script.Parent  -- Replace with your actual parent frame
 CreateKeybindSelector(parentFrame, "Aimbot")  -- Example of creating a keybind selector for Aimbot
+
 
 
         local trail = Instance.new("Folder")
