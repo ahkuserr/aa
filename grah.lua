@@ -1056,7 +1056,7 @@ function main:Begin(PROPS)
             SinWaveGraph_ElementDisplayName.Position = UDim2.new(0, (SinWaveGraph_ElementDisplay.Size.X + 15), 0, 20)
         end)
 
-
+local UserInputService = game:GetService("UserInputService")
 
 local function CreateKeybindSelector(parent, title)
     -- Create the main frame to hold checkbox and keybind selector
@@ -1066,7 +1066,7 @@ local function CreateKeybindSelector(parent, title)
     frame.Size = UDim2.new(0, 300, 0, 30)
     frame.BackgroundTransparency = 1
     
-    -- Create the label for the feature title
+    -- Create the label for the feature title (e.g., "Aimbot")
     local label = Instance.new("TextLabel")
     label.Name = title .. "Label"
     label.Parent = frame
@@ -1086,7 +1086,8 @@ local function CreateKeybindSelector(parent, title)
     checkbox.BackgroundColor3 = Color3.fromRGB(0, 255, 0) -- Green for checked
     checkbox.Text = "✓"
     checkbox.TextColor3 = Color3.fromRGB(255, 255, 255)
-    checkbox.FontFace = GetFont()
+    checkbox.FontFace = Enum.Font.SourceSans
+    checkbox.TextSize = 18
     
     -- Create the keybind label next to checkbox
     local keybindLabel = Instance.new("TextLabel")
@@ -1123,6 +1124,7 @@ local function CreateKeybindSelector(parent, title)
             end
         end
         
+        -- Listen for a key press to set the keybind
         UserInputService.InputBegan:Connect(onKeyPressed)
     end)
 
@@ -1131,7 +1133,7 @@ end
 
 -- Usage Example
 local parentFrame = script.Parent  -- Replace with your actual parent frame
-CreateKeybindSelector(parentFrame, "Aimbot")
+CreateKeybindSelector(parentFrame, "Aimbot")  -- Example of creating a keybind selector for Aimbot
 
 
         local trail = Instance.new("Folder")
